@@ -16,7 +16,7 @@ import com.admin.AdminControlMongoReact.Model.User;
 import com.admin.AdminControlMongoReact.UserRepository.UserRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
@@ -24,8 +24,16 @@ public class UserController {
 	
 	@GetMapping("/")
 	public List<User> GetUsers(){
-		return userRepository.findAll();
+		System.out.println("User details have been accessed");
+		return userRepository.findAll();	
 	}
+	
+	@GetMapping("/test")
+	public String test(){
+		return "Server is up and running";
+	}
+	
+	
 	
 	@GetMapping("/{id}")
 	public User GetUsers(@PathVariable String id){
